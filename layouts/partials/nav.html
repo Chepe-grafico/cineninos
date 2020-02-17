@@ -1,0 +1,41 @@
+<body {{ if .IsHome }} class="landing" {{ end }} >
+  <div id="page-wrapper">
+    <header id="header" {{ if .IsHome }} class="alt" {{ end }} >
+      <a href="/"><img src="/img/top-top.png" alt="" class="top-top"></a>
+
+      {{ "<!-- Nav -->" | safeHTML }}
+      <nav id="nav">
+        <ul>
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+                <li>
+                    <a href="{{ .URL }}"><i class="fas fa-angle-down"></i>
+                        {{ .Name }}
+                    </a>
+                    <ul>
+                      {{ range .Children }}
+                          <li>
+                              <a href="{{ .URL }}">{{ .Name }}</a>
+                            </li>
+                      {{ end }}
+                    </ul>
+                  </li>
+            {{ else }}
+                <li>
+                    <a href="{{ .URL }}">
+                        {{ .Pre }} {{ .Name }}
+                    </a>
+                </li>
+            {{ end }}
+        {{ end }}
+        </ul>
+      </nav>
+    </header>
+
+<style>
+  .top-top{
+    height: 4.5rem;
+    margin: 0 3rem 3rem 3rem;
+  }
+</style>

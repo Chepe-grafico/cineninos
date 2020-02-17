@@ -1,0 +1,73 @@
+<section id="banner" style="background-image:url({{ "/img/overlay.png" | absURL }}), url({{ .Params.Banner.image | absURL }})">
+    <!-- <h2>{{ .Site.Params.title }}</h2> -->
+    <div class="top-img">
+        <img class="inner-img" src="/img/curso.png" alt="">
+        <img class="inner-img" src="/img/cine.png" alt="">
+        <img class="inner-img" src="/img/animado.png" alt="">
+        <img class="inner-img" src="/img/para-ninos.png" alt="">
+    </div>
+    <p>{{ .Site.Params.subtitle }}</p>
+    <ul class="actions special">
+        {{ range .Params.Banner.button }}
+        <li><a href="{{ .url }}" class="button {{ .type }}">{{ .text }}</a></li>
+        {{ end }}
+    </ul>
+</section>
+
+
+<style>
+    .top-img {
+        height: 30rem;
+        width: 55vw;
+        margin: 0 auto;
+    }
+
+    .top-img>img {
+        height: 33rem;
+    }
+
+    .inner-img:nth-child(1) {
+        position: absolute;
+        animation-delay: 0.75s;
+    }
+
+    .inner-img:nth-child(2) {
+        position: absolute;
+        animation-delay: 0.5s;
+    }
+
+    .inner-img:nth-child(3) {
+        position: absolute;
+        animation-delay: 0.25s;
+    }
+
+
+    element.style {
+        background-image: url(http://localhost:1313/img/overlay.png), url(http://localhost:1313/img/banner.jpg);
+    }
+
+    #banner {
+        background-attachment: scroll, fixed;
+        background-color: #666;
+        background-image: url(images/overlay.png), url(../../images/banner.jpg);
+        background-position: top left, center center;
+        background-repeat: repeat, no-repeat;
+        background-size: auto, cover;
+        color: #fff;
+        padding: 12em 0 20em;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 720px) {
+        .top-img>img {
+            height: 14rem;
+        }
+
+        .top-img {
+            height: 30rem;
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+    }
+</style>
