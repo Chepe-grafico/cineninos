@@ -4,6 +4,12 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: document
+  path: config.toml
+  label: configuraciones
+  match: "**/*"
+- type: heading
+  label: blogs
 - type: directory
   path: content
   label: Pages
